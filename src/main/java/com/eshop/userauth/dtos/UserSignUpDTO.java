@@ -10,4 +10,5 @@ public class UserSignUpDTO {
     private String phoneNo;
     private String email;
     private String hashedPassword;
+    private boolean hasEmailVerified;
 }

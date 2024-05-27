@@ -27,6 +27,7 @@ public class UserService {
             newUser.setHashedPassword(userSignUpDTO.getHashedPassword());
             newUser.setName(userSignUpDTO.getName());
             newUser.setPhoneNo(userSignUpDTO.getPhoneNo());
+            newUser.setHasEmailVerified(false);
 
             userRepository.save(newUser);
         }
