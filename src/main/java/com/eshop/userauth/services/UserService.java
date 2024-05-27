@@ -1,6 +1,7 @@
 package com.eshop.userauth.services;
 
 import com.eshop.userauth.dtos.UserSignUpDTO;
+import com.eshop.userauth.exceptions.DuplicateUserException;
 import com.eshop.userauth.models.User;
 import com.eshop.userauth.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +15,11 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void signUp(UserSignUpDTO userSignUpDTO){
+    public void signUp(UserSignUpDTO userSignUpDTO) throws DuplicateUserException {
         Optional<User> user = userRepository.findByEmail(userSignUpDTO.getEmail());
 
         if(user.isPresent()){
-            throw new DuplicateUserException("User already exists");
+            throw new DuplicateUserException();
         }
         else{
             User newUser = new User();
