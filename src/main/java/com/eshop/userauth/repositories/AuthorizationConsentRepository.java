@@ -1,6 +1,6 @@
 package com.eshop.userauth.repositories;
 
-import com.auth.user.security.models.AuthorizationConsent;
+import com.eshop.userauth.models.AuthorizationConsent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

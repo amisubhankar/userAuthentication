@@ -1,7 +1,7 @@
 package com.eshop.userauth.services;
 
-import com.auth.user.security.models.Authorization;
-import com.auth.user.security.repositories.AuthorizationRepository;
+import com.eshop.userauth.models.Authorization;
+import com.eshop.userauth.repositories.AuthorizationRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.Module;
 import com.fasterxml.jackson.databind.ObjectMapper;

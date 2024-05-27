@@ -1,6 +1,6 @@
 package com.eshop.userauth.repositories;
 
-import com.auth.user.security.models.Client;
+import com.eshop.userauth.models.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

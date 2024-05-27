@@ -1,7 +1,7 @@
 package com.eshop.userauth.services;
 
-import com.auth.user.security.models.AuthorizationConsent;
-import com.auth.user.security.repositories.AuthorizationConsentRepository;
+import com.eshop.userauth.models.AuthorizationConsent;
+import com.eshop.userauth.repositories.AuthorizationConsentRepository;
 import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
