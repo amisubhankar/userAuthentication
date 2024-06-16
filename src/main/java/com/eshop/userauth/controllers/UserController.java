@@ -1,23 +1,23 @@
 package com.eshop.userauth.controllers;
 
+import com.eshop.userauth.dtos.UserResponseDto;
 import com.eshop.userauth.dtos.UserSignUpDTO;
 import com.eshop.userauth.exceptions.DuplicateUserException;
+import com.eshop.userauth.exceptions.UserNotFoundException;
 import com.eshop.userauth.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping("/user/signup")
+    @PostMapping("/signup")
     public ResponseEntity<String> signUp(@RequestBody UserSignUpDTO userSignUpDTO){
         try {
             userService.signUp(userSignUpDTO);
@@ -28,4 +28,15 @@ public class UserController {
         return new ResponseEntity<>("Successfully Added", HttpStatus.OK);
     }
 
+    @GetMapping("/details/{id}")
+    public ResponseEntity<UserResponseDto> getUserDetails(@PathVariable("id") Long id){
+        UserResponseDto userResponseDto = null;
+        try {
+            userResponseDto = userService.getUserDetailsById(id);
+        } catch (UserNotFoundException e) {
+            return ResponseEntity.badRequest().body(userResponseDto);
+        }
+
+        return ResponseEntity.ok().body(userResponseDto);
+    }
 }
