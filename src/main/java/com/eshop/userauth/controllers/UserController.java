@@ -39,4 +39,9 @@ public class UserController {
 
         return ResponseEntity.ok().body(userResponseDto);
     }
+
+    @GetMapping("/{email}")
+    public ResponseEntity<Long> getUserIdByEmail(@PathVariable(name = "email") String email){
+        return ResponseEntity.ok().body(userService.getUserIdByEmail(email));
+    }
 }
